@@ -20,7 +20,7 @@ const base = "https://api.tink.se/api/v1";
 // This is the server API, where the client can post a received OAuth code.
 app.post("/callback", function(req, res) {
   getAccessToken(req.body.code)
-    .then(response => getData(response.access_token))
+    .then(response => getIdentityData(response.access_token))
     .then(response => {
       res.json({
         response
@@ -87,6 +87,16 @@ async function getAccessToken(code) {
 
 async function getUserData(token) {
   const response = await fetch(base + "/user", {
+    headers: {
+      Authorization: "Bearer " + token
+    }
+  });
+
+  return handleResponse(response);
+}
+
+async function getIdentityData(token) {
+  const response = await fetch(base + "/identities", {
     headers: {
       Authorization: "Bearer " + token
     }

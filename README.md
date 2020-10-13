@@ -57,3 +57,9 @@ You should be redirected to the client app on `http://localhost:3000/`. The clie
 ## Support
 
 👋 We are continuously working on improving the developer experience of our API offering. [Contact us](https://tinkab.atlassian.net/servicedesk/customer/portal/5) for support, questions or suggestions.
+
+## Example credentials
+
+Test provider: Test Password
+Username: tink
+Password: tink-1234
